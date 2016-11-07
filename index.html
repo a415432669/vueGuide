@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--引入VUE2.0JS-->
+		<script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<!--
+			Vue.js是什么？
+			Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。
+			与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。
+			Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。
+			另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。
+		-->
+		
+		<div id="app">
+			<h1>{{message}}{{author}}</h1>
+			<h3>{{time}}</h3>
+		</div>
+		<script type="text/javascript">
+		/*Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将数据渲染进 DOM 的系统*/
+		/*现在数据和 DOM 已经被绑定在一起，所有的元素都是响应式的。我们如何知道？
+		 * 打开你的浏览器的控制台，并修改 app.message，你将看到下面例子相应地更新。*/
+			var app = new Vue({
+				el:'#app',
+				data:{
+					message:'Hello ',
+					author:'cpeng ',
+					time:'0'
+				}
+				
+			})
+			/*写了一个获取时间的函数是更新app.time的时间*/
+			function getTime(){
+				var ctime=new Date()
+				console.log(ctime);
+				var y=ctime.getFullYear();
+				console.log(y);
+				var month=ctime.getMonth()+1;
+				console.log(m);
+				var d=ctime.getDate();
+				console.log(d);
+				var h=ctime.getHours();
+				var m=ctime.getMinutes();
+				var s=ctime.getSeconds();
+				var str=y+'-'+month+'-'+d+' '+h+':'+m+':'+s;
+				return str;
+			}
+			app.time=getTime();
+			setInterval(function(){
+				app.time=getTime();
+			},1000)
+			
+			
+		</script>
+	</body>
+</html>
